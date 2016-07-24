@@ -17,10 +17,10 @@ namespace Microsoft.Web.Redis
         internal string sessionId;
         internal object sessionLockId;
         private const int FROM_MIN_TO_SEC = 60;
-        
-        internal static ProviderConfiguration configuration;
+
+        public static ProviderConfiguration configuration;
         internal static object configurationCreationLock = new object();
-        internal ICacheConnection cache;
+        public ICacheConnection cache;
 
         private static object _lastException = new object();
 
@@ -49,7 +49,7 @@ namespace Microsoft.Web.Redis
             }
         }
 
-        private void GetAccessToStore(string id) 
+        protected void GetAccessToStore(string id) 
         {
             if (cache == null)
             {
@@ -190,7 +190,7 @@ namespace Microsoft.Web.Redis
             return GetItemFromSessionStore(true, context, id, out locked, out lockAge, out lockId, out actions);
         }
 
-        private SessionStateStoreData GetItemFromSessionStore(bool isWriteLockRequired, HttpContext context, string id, out bool locked, out TimeSpan lockAge, out object lockId, out SessionStateActions actions)
+        protected SessionStateStoreData GetItemFromSessionStore(bool isWriteLockRequired, HttpContext context, string id, out bool locked, out TimeSpan lockAge, out object lockId, out SessionStateActions actions)
         {
             try
             {

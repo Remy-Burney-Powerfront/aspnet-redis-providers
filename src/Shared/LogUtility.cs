@@ -9,7 +9,7 @@ using System.IO;
 
 namespace Microsoft.Web.Redis
 {
-    internal static class LogUtility
+    public static class LogUtility
     {
         public static TextWriter logger = null;
 

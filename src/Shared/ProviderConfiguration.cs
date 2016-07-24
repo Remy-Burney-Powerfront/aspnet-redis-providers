@@ -13,7 +13,7 @@ using System.Web.Hosting;
 
 namespace Microsoft.Web.Redis
 {
-    internal class ProviderConfiguration
+    public class ProviderConfiguration
     {
         public TimeSpan RequestTimeout { get; set; }
         public TimeSpan SessionTimeout { get; set; }

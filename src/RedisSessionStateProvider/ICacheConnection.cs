@@ -8,7 +8,7 @@ using System.Web.SessionState;
 
 namespace Microsoft.Web.Redis
 {
-    internal interface ICacheConnection
+    public interface ICacheConnection
     {
         KeyGenerator Keys { get; set; } 
         void Set(ISessionStateItemCollection data, int sessionTimeout);
